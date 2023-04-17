@@ -25,7 +25,7 @@ public class ProyectoTriki extends JFrame {
     
     public ProyectoTriki(){
         super("Menu principal");
-		setSize(500, 500);
+		setSize(400, 400);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);

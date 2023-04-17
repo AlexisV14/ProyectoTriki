@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  */
 public class JugadorvsJugador extends JFrame{
     
-    JTextField jtNickName1,jtNickName2;
+    static JTextField jtNickName1,jtNickName2;
     JLabel jlNickName1,jlNickName2;
     JButton jbJugar;
     
@@ -25,7 +25,7 @@ public class JugadorvsJugador extends JFrame{
         
         super("Ingreso de jugadores");
         
-        setSize(500, 500);
+        setSize(400, 400);
         setLocationRelativeTo(null);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
 	setLayout(null);
@@ -44,11 +44,11 @@ public class JugadorvsJugador extends JFrame{
         jtNickName2 = new JTextField();
         jbJugar = new JButton("JUGAR");
         
-        jlNickName1.setBounds(20, 20, 250, 20); 
-        jtNickName1.setBounds(20, 40, 250, 20);  
-        jlNickName2.setBounds(20, 60, 250, 20); 
-        jtNickName2.setBounds(20, 80, 250, 20); 
-        jbJugar.setBounds(20, 100, 250, 20);
+        jlNickName1.setBounds(40, 20, 250, 20); 
+        jtNickName1.setBounds(40, 40, 250, 20);  
+        jlNickName2.setBounds(40, 60, 250, 20); 
+        jtNickName2.setBounds(40, 80, 250, 20); 
+        jbJugar.setBounds(40, 140, 250, 20);
         
         eventoJugar(jbJugar);
         
