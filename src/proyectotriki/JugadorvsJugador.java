@@ -4,6 +4,8 @@
  */
 package proyectotriki;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -46,7 +48,9 @@ public class JugadorvsJugador extends JFrame{
         jtNickName1.setBounds(20, 40, 250, 20);  
         jlNickName2.setBounds(20, 60, 250, 20); 
         jtNickName2.setBounds(20, 80, 250, 20); 
-        jbJugar.setBounds(20, 100, 250, 20); 
+        jbJugar.setBounds(20, 100, 250, 20);
+        
+        eventoJugar(jbJugar);
         
         add(jlNickName1);
         add(jtNickName1);
@@ -55,4 +59,17 @@ public class JugadorvsJugador extends JFrame{
         add(jbJugar);
     }
     
+     public void eventoJugar(JButton boton){
+        
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Juego obj = new Juego();
+                
+                
+            }
+        });
+        
+    }
+     
 }
