@@ -4,6 +4,9 @@
  */
 package proyectotriki;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -38,6 +41,10 @@ public class Juego extends JFrame {
        
        String player1 = JugadorvsJugador.jtNickName1.getText();
        String player2 = JugadorvsJugador.jtNickName2.getText();
+       
+       
+       
+       
         
         jb1 = new JButton();
         jb2 = new JButton();
@@ -64,6 +71,10 @@ public class Juego extends JFrame {
         jb9.setBounds(180, 180, 80, 80);
         jlNickName1.setBounds(300, 20, 150, 20);
         jlNickName2.setBounds(300, 60, 150, 20);
+        
+        eventoOprimir(jb1);
+        eventoOprimir(jb2);
+        eventoOprimir(jb3);
              
         
         add(jb1);
@@ -78,6 +89,20 @@ public class Juego extends JFrame {
         add(jlNickName1);
         add(jlNickName2);
         
+    }
+    
+    public void eventoOprimir(JButton boton)
+    {
+        
+        ImageIcon i2 = new ImageIcon(getClass().getResource("/imagenes/circulo.png"));
+        ImageIcon i1 = new ImageIcon(getClass().getResource("/imagenes/equis.png"));
+        boton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boton.setIcon(i2);
+                boton.setEnabled(false);
+            }
+        });
     }
     
     
