@@ -28,6 +28,7 @@ public class JugadorvsJugador extends JFrame{
         setSize(400, 400);
         setLocationRelativeTo(null);
 	setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
 	setLayout(null);
         PedirNickName();
         
