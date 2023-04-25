@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package proyectotriki;
+package Vista;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -28,6 +29,8 @@ public class ProyectoTriki extends JFrame {
 		setSize(400, 400);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+                
 		setLayout(null);
                 crearMenu();
 				
@@ -49,6 +52,9 @@ public class ProyectoTriki extends JFrame {
         
         
         eventoNickName(jbjugadorvsjugador);
+        eventoDescripcionyReglas(jbdescripcionjuego);
+        eventoInfoprogrmadores(jbinfoProgramadores);
+        
         
         add(jlselecciona);
         add(jbjugadorvsjugador);
@@ -58,18 +64,43 @@ public class ProyectoTriki extends JFrame {
         
     }
     
-    public void eventoNickName(JButton boton){
+  public void eventoNickName(JButton boton){
         
         boton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JugadorvsJugador obj = new JugadorvsJugador();
-                setVisible(false);
                 
                 
             }
+            
         });
         
+    }
+    // Este evento llama la clase DescripcionyReglas
+    
+    public void eventoDescripcionyReglas(JButton boton1){
+        boton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+              DescripcionyReglas ob = new DescripcionyReglas();  
+            }
+        });
+        
+        
+    
+        
+    }
+    
+    // Este evento llama la clase infoprogramadore y Acercainfo
+    
+    public void eventoInfoprogrmadores(JButton bot){
+        bot.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Infoprogramadores ob = new Infoprogramadores();
+            }
+        });
     }
         
     
