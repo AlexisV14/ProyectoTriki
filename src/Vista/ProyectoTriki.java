@@ -4,11 +4,9 @@
  */
 package Vista;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Controlador.ProyectoTriki_Control;
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -18,19 +16,13 @@ import javax.swing.JLabel;
 public class ProyectoTriki extends JFrame {
     
     JLabel jlselecciona;
-    JButton jbjugadorvsjugador;
-    JButton jbjugadorvspc;
-    JButton jbdescripcionjuego;
-    JButton jbinfoProgramadores;
-    
+    public JButton jbjugadorvsjugador,jbjugadorvspc,jbdescripcionjuego,jbinfoProgramadores;  
     
     public ProyectoTriki(){
         super("Menu principal");
 		setSize(400, 400);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-                
+		setDefaultCloseOperation(EXIT_ON_CLOSE);        
 		setLayout(null);
                 crearMenu();
 				
@@ -38,6 +30,9 @@ public class ProyectoTriki extends JFrame {
     }
     
     public void crearMenu(){
+        
+        ProyectoTriki_Control ptc = new ProyectoTriki_Control(this);
+        
         jlselecciona = new JLabel("Selecciona una modalidad de juego: ");
         jbjugadorvsjugador = new JButton("Jugador vs Jugador");
         jbjugadorvspc = new JButton("Jugador vs Pc");
@@ -50,11 +45,9 @@ public class ProyectoTriki extends JFrame {
         jbdescripcionjuego.setBounds((500-300)/2, 150, 200, 30);
         jbinfoProgramadores.setBounds((500-300)/2, 190, 200, 30);
         
-        
-        eventoNickName(jbjugadorvsjugador);
-        eventoDescripcionyReglas(jbdescripcionjuego);
-        eventoInfoprogrmadores(jbinfoProgramadores);
-        
+        jbjugadorvsjugador.addActionListener(ptc);
+        jbdescripcionjuego.addActionListener(ptc);
+        jbinfoProgramadores.addActionListener(ptc);
         
         add(jlselecciona);
         add(jbjugadorvsjugador);
@@ -63,48 +56,7 @@ public class ProyectoTriki extends JFrame {
         add(jbinfoProgramadores);
         
     }
-    
-  public void eventoNickName(JButton boton){
-        
-        boton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JugadorvsJugador obj = new JugadorvsJugador();
-                
-                
-            }
-            
-        });
-        
-    }
-    // Este evento llama la clase DescripcionyReglas
-    
-    public void eventoDescripcionyReglas(JButton boton1){
-        boton1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-              DescripcionyReglas ob = new DescripcionyReglas();  
-            }
-        });
-        
-        
-    
-        
-    }
-    
-    // Este evento llama la clase infoprogramadore y Acercainfo
-    
-    public void eventoInfoprogrmadores(JButton bot){
-        bot.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Infoprogramadores ob = new Infoprogramadores();
-            }
-        });
-    }
-        
-    
-    
+   
     public static void main(String[] args) {
         ProyectoTriki pt = new ProyectoTriki();
     }

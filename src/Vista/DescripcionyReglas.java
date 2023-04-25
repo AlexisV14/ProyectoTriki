@@ -1,9 +1,7 @@
 
 package Vista;
 
-import java.awt.Image;
 import java.net.URL;
-import javax.swing.ImageIcon;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
@@ -12,8 +10,6 @@ import javax.swing.JScrollPane;
 public class DescripcionyReglas extends JFrame{
     
     JEditorPane editor;
- 
-     
     
     public DescripcionyReglas(){
         super("Descripcion y Reglas");
@@ -29,8 +25,7 @@ public class DescripcionyReglas extends JFrame{
         
     }
     
-    
-    private void crearGUI(){
+     public void crearGUI(){
          editor = new JEditorPane();
          editor.setContentType("text/html");
          URL url = getClass().getResource("../imagenes/triki.png");
@@ -41,7 +36,7 @@ public class DescripcionyReglas extends JFrame{
             + " Los jugadores  buscan poner su respectiva ficha de forma secuencial, ya sea en filas, columnas o digonales,"
             + " esto les permitira ganar antes que el otro jugador complete su secuencia."+
             "<br><br><div align ='center'><font face='Tahoma' size='3' color='red'><strong>Reglas</font><div>"+
-            "<br>1. Cada jugador elije una figuara que lo represente en el juego."+"<br>"
+            "<br>1. Cada jugador se le asiga una figura aleatoria en el juego."+"<br>"
             +"2. Un jugador solo debe tirar una vez por turno y no sobre una casilla ya jugada.<br>"
             +"3. El contrincate debe evitar que el jugador complete su serie y gane.<br>"
             +"4. Sigue alternando movimientos hasta que uno de los jugadores complete la serie de 3 o hasta que ninguno gane.<br>"
@@ -58,10 +53,11 @@ public class DescripcionyReglas extends JFrame{
          js.setBounds(60, 30, 250, 250);
          
          add(js);
-         
-     }
+    }
+    
+     
+    }
     
     
     
-   
-}
+  

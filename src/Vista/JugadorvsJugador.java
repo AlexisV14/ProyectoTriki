@@ -4,7 +4,7 @@
  */
 package Vista;
 
-import Vista.Juego;
+import Controlador.JugadorvsJugador_Control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
@@ -20,7 +20,7 @@ public class JugadorvsJugador extends JFrame{
     
     static JTextField jtNickName1,jtNickName2;
     JLabel jlNickName1,jlNickName2;
-    JButton jbJugar;
+    public JButton jbJugar;
     
     public JugadorvsJugador(){
         
@@ -39,6 +39,8 @@ public class JugadorvsJugador extends JFrame{
     
     public void PedirNickName(){
         
+        JugadorvsJugador_Control jvjc = new JugadorvsJugador_Control(this);
+        
         jlNickName1 = new JLabel("Ingresa tu Nickname jugador 1: ");
         jtNickName1 = new JTextField();
         jlNickName2 = new JLabel("Ingresa tu Nickname jugador 2: ");
@@ -51,7 +53,7 @@ public class JugadorvsJugador extends JFrame{
         jtNickName2.setBounds(40, 80, 250, 20); 
         jbJugar.setBounds(40, 140, 250, 20);
         
-        eventoJugar(jbJugar);
+        jbJugar.addActionListener(jvjc);
         
         add(jlNickName1);
         add(jtNickName1);
@@ -60,17 +62,5 @@ public class JugadorvsJugador extends JFrame{
         add(jbJugar);
     }
     
-     public void eventoJugar(JButton boton){
-        
-        boton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Juego obj = new Juego();
-                setVisible(false);
-                
-            }
-        });
-        
-    }
      
 }

@@ -4,8 +4,7 @@
  */
 package Vista;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import Controlador.Juego_Control;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,14 +17,14 @@ import javax.swing.JLabel;
  */
 public class Juego extends JFrame {
     
-    JButton jb1,jb2,jb3,jb4,jb5,jb6,jb7,jb8,jb9;
-    JLabel jlNickName1, jlNickName2,jlicono1,jlicono2,jlturno;
-    ArrayList<JButton> botones = new ArrayList(8);
-    int turno;
-    ImageIcon i2 = new ImageIcon(getClass().getResource("/imagenes/circulo.png"));
-    ImageIcon i1 = new ImageIcon(getClass().getResource("/imagenes/equis.png"));
-    String player1 = JugadorvsJugador.jtNickName1.getText();
-    String player2 = JugadorvsJugador.jtNickName2.getText();
+    public JButton jb1,jb2,jb3,jb4,jb5,jb6,jb7,jb8,jb9;
+    public JLabel jlNickName1, jlNickName2,jlicono1,jlicono2,jlturno;
+    public ArrayList<JButton> botones = new ArrayList(8);
+    public int turno;
+    public ImageIcon i2 = new ImageIcon(getClass().getResource("/imagenes/circulo.png"));
+    public ImageIcon i1 = new ImageIcon(getClass().getResource("/imagenes/equis.png"));
+    public String player1 = JugadorvsJugador.jtNickName1.getText();
+    public String player2 = JugadorvsJugador.jtNickName2.getText();
    
     
     public Juego(){
@@ -44,31 +43,32 @@ public class Juego extends JFrame {
     
     public void tablero()
     {
+        
+        Juego_Control jc = new Juego_Control(this);
        
         turno = 1;
        
-        jb1 = new JButton("0");
-        jb2 = new JButton("1");
-        jb3 = new JButton("2");
-        jb4 = new JButton("3");
-        jb5 = new JButton("4");
-        jb6 = new JButton("5");
-        jb7 = new JButton("6");
-        jb8 = new JButton("7");
-        jb9 = new JButton("8");
+        jb1 = new JButton();
+        jb2 = new JButton();
+        jb3 = new JButton();
+        jb4 = new JButton();
+        jb5 = new JButton();
+        jb6 = new JButton();
+        jb7 = new JButton();
+        jb8 = new JButton();
+        jb9 = new JButton();
         jlNickName1 = new JLabel(player1);
         jlNickName2 = new JLabel(player2);
-        jlturno = new JLabel("turno jugador " + player1);
+        jlturno = new JLabel("Turno jugador " + player1);
         
         turno = 2;
                
         
-        jlicono1 = new JLabel(asignarIcono(i1, i2));
+        jlicono1 = new JLabel(jc.asignarIcono(i2, i2));
         if(jlicono1.getIcon().equals(i1))
             {jlicono2 = new JLabel(i2);}
             else{jlicono2 = new JLabel(i1);}
-        
-        
+          
         
         jb1.setBounds(20, 20, 80, 80);
         jb2.setBounds(100, 20, 80, 80);
@@ -84,6 +84,7 @@ public class Juego extends JFrame {
         jlNickName2.setBounds(280, 80, 100, 48);
         jlicono1.setBounds(300, 20, 115, 48);
         jlicono2.setBounds(300, 80, 115, 48);
+             
         
         add(jb1);
         add(jb2);
@@ -101,16 +102,6 @@ public class Juego extends JFrame {
         add(jlturno);
         
         
-        jb1.addActionListener(new BotonPulsadoListener());
-        jb2.addActionListener(new BotonPulsadoListener());
-        jb3.addActionListener(new BotonPulsadoListener());
-        jb4.addActionListener(new BotonPulsadoListener());
-        jb5.addActionListener(new BotonPulsadoListener());
-        jb6.addActionListener(new BotonPulsadoListener());
-        jb7.addActionListener(new BotonPulsadoListener());
-        jb8.addActionListener(new BotonPulsadoListener());
-        jb9.addActionListener(new BotonPulsadoListener());
-        
         botones.add(jb1);
         botones.add(jb2);
         botones.add(jb3);
@@ -121,82 +112,12 @@ public class Juego extends JFrame {
         botones.add(jb8);
         botones.add(jb9);
         
+        for(int i = 0;i<botones.size();i++){
+             botones.get(i).addActionListener(jc);
+        }
         
         
     }
-    
-    private class BotonPulsadoListener implements ActionListener{		
-
-    public void actionPerformed(ActionEvent e) {
-        
-        int botonPulsado = Integer.parseInt(e.getActionCommand());
-        botones.get(botonPulsado).setEnabled(false);
-        
-        
-        ganador();
-        
-        if(turno == 1)
-        {
-            botones.get(botonPulsado).setText("");
-            botones.get(botonPulsado).setIcon(i1);
-            jlturno.setText( "turno jugador " + player1);
-           
-            turno=2;
-        }
-        else
-        {
-            botones.get(botonPulsado).setText("");
-            botones.get(botonPulsado).setIcon(i2);
-            jlturno.setText( "turno jugador " + player2);
-            turno=1;
-        }
-         }
-    }
-    
-    
-    
-   public void eventoOprimir(JButton boton)
-    {
-        
-       boton.addActionListener(new ActionListener() {
-           @Override
-           public void actionPerformed(ActionEvent e) {
-               if(turno == 1)
-               {
-                   boton.setIcon(i1);
-               }
-               else
-               {
-                   boton.setIcon(i2);
-               }
-               
-               boton.setEnabled(false);
-           }
-       });
-        
-   }
-    
-    public ImageIcon asignarIcono(ImageIcon a,ImageIcon b)
-    {
-        ImageIcon elementos[] = {a,b};
-        
-        int aleatorio =(int) (Math.random()*(2));
-        
-        ImageIcon c= elementos[aleatorio];
-        
-        return c;
-        
-    }    
-    
-    public void ganador()
-    {
-        if
-        (botones.get(1).getText().equals("1"))
-        {
-            System.out.println("ganaste");
-        }
-    }
-    
     
     
 }

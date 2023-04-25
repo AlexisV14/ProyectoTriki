@@ -1,8 +1,6 @@
 
 package Vista;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -11,10 +9,11 @@ import javax.swing.SwingConstants;
 
 
 public class AcercaInfo extends JDialog{
-    JButton jbcerrar;
+    
+    public JButton jbcerrar;
     JLabel jlImg;
     
-    public AcercaInfo(Infoprogramadores I){
+    public AcercaInfo(InfoProgramadores I){
         super(I, "Información..", true);
         setSize(400, 300);
         setLocationRelativeTo(I);
@@ -82,22 +81,10 @@ public class AcercaInfo extends JDialog{
         
         jbcerrar = new JButton("Cerrar");
         jbcerrar.setBounds(100, 200, 200, 30);
-        jbcerrar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                evento_jbcerrrar();
-            }
-
-            
-        });
+ 
         add(jbcerrar);
         
     }
     
-    private void evento_jbcerrrar() {
-           setVisible(false);
-           dispose();
-           
-        }
     
 }
