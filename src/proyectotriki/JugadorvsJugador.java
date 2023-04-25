@@ -65,7 +65,7 @@ public class JugadorvsJugador extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Juego obj = new Juego();
-                
+                setVisible(false);
                 
             }
         });

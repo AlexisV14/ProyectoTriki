@@ -41,11 +41,12 @@ public class ProyectoTriki extends JFrame {
         jbdescripcionjuego = new JButton("Descripcion y Reglas ");
         jbinfoProgramadores = new JButton("Informacion Programadores");
          
-        jlselecciona.setBounds(20, 20, 250, 20);     
-        jbjugadorvsjugador.setBounds(20, 50, 200, 20);       
-        jbjugadorvspc.setBounds(20, 80,200, 20);
-        jbdescripcionjuego.setBounds(20, 110, 200, 20);
-        jbinfoProgramadores.setBounds(20, 140, 200, 20);
+        jlselecciona.setBounds((500-300)/2, 30, 250, 20);     
+        jbjugadorvsjugador.setBounds((500-300)/2, 70, 200, 30);       
+        jbjugadorvspc.setBounds((500-300)/2, 110,200, 30);
+        jbdescripcionjuego.setBounds((500-300)/2, 150, 200, 30);
+        jbinfoProgramadores.setBounds((500-300)/2, 190, 200, 30);
+        
         
         eventoNickName(jbjugadorvsjugador);
         
@@ -63,6 +64,7 @@ public class ProyectoTriki extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JugadorvsJugador obj = new JugadorvsJugador();
+                setVisible(false);
                 
                 
             }
