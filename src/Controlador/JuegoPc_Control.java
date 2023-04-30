@@ -4,7 +4,7 @@
  */
 package Controlador;
 
-import Vista.Juego;
+import Vista.JuegoPc;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -14,14 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author Alexi
  */
-public class Juego_Control implements ActionListener{
+public class JuegoPc_Control implements ActionListener{
     
-    Juego j;
+    JuegoPc j;
     
     public ArrayList<Integer> jugada = new ArrayList(8);
     
 
-    public Juego_Control(Juego j) {
+    public JuegoPc_Control (JuegoPc j) {
         this.j = j;
         
         jugada.add(0);
@@ -44,35 +44,33 @@ public class Juego_Control implements ActionListener{
         
         if(e.getSource().equals(j.jbReiniciar))
             {
-                new Juego();
+                int k = (int)(Math.random()*8);
+                System.out.println(k);
             }
         
         for(int i = 0;i<j.botones.size();i++)
         {
-             
+           
+            if(e.getSource().equals(j.jbReiniciar))
+            {
+                new JuegoPc();
+            }
         
-             if(e.getSource().equals(j.botones.get(i)))
+           if(e.getSource().equals(j.botones.get(i)))
             {
 
-                if(j.turno == 1)
-               {
-                   jugada.set(i, j.turno);
-                   j.botones.get(i).setIcon(j.jlicono2.getIcon());
-                   j.botones.get(i).setEnabled(false);
-                   j.jlturno.setText( "Turno jugador: " + j.player1);
-
-                   j.turno = 2;
-               }
-               else
-               {
-
-                   jugada.set(i, j.turno);
+               
+                   jugada.set(i, 2);
                    j.botones.get(i).setIcon(j.jlicono1.getIcon());
                    j.botones.get(i).setEnabled(false);
-                   j.jlturno.setText( "Turno jugador: " + j.player2);
-                   j.turno=1;
-               }
+                   
+                   int k = jugadaPc();
+                   jugada.set(k, 1);
+                   j.botones.get(k).setIcon(j.jlicono2.getIcon());
+                   j.botones.get(k).setEnabled(false);
             }
+           
+           
            
         }
         
@@ -102,6 +100,29 @@ public class Juego_Control implements ActionListener{
         return c;
     }
   
+  public int jugadaPc()
+    {
+        int i;
+        boolean botonhabilitado = false;
+        
+        do
+        {
+        
+         i = (int)(Math.random()*8);
+         
+            
+        if(j.botones.get(i).isEnabled() == true)
+        {
+            System.out.println(i);
+            botonhabilitado = true;
+            break;
+        }
+        }while(botonhabilitado == true);
+        
+        return i;
+        
+        
+    }
     
     
     public boolean ganar()
@@ -150,4 +171,5 @@ public class Juego_Control implements ActionListener{
        
     }
     
+
 

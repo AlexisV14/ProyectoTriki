@@ -7,6 +7,7 @@ package Controlador;
 import Vista.DescripcionyReglas;
 import Vista.InfoProgramadores;
 import Vista.JugadorvsJugador;
+import Vista.JugadorvsPc;
 import Vista.ProyectoTriki;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,6 +43,11 @@ public class ProyectoTriki_Control implements ActionListener{
           if(e.getSource().equals(pt.jbinfoProgramadores))
         {
             InfoProgramadores ip = new InfoProgramadores();
+            pt.setVisible(false);
+        }
+          if(e.getSource().equals(pt.jbjugadorvspc))
+        {
+            JugadorvsPc jvp = new JugadorvsPc();
             pt.setVisible(false);
         }
     }

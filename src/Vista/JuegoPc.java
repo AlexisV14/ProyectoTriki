@@ -4,30 +4,31 @@
  */
 package Vista;
 
-import Controlador.Juego_Control;
+import Controlador.JuegoPc_Control;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 /**
  *
  * @author Alexi
  */
-public class Juego extends JFrame {
+public class JuegoPc extends JFrame {
     
     public JButton jb1,jb2,jb3,jb4,jb5,jb6,jb7,jb8,jb9,jbReiniciar;
-    public JLabel jlNickName1, jlNickName2,jlicono1,jlicono2,jlturno;
+    public JLabel jlNickName1,jlNickName2,jlPc,jlicono1,jlicono2;
     public ArrayList<JButton> botones = new ArrayList(8);
-    public int turno;
     public ImageIcon i2 = new ImageIcon(getClass().getResource("/imagenes/circulo.png"));
     public ImageIcon i1 = new ImageIcon(getClass().getResource("/imagenes/equis.png"));
-    public String player1 = JugadorvsJugador.jtNickName1.getText();
-    public String player2 = JugadorvsJugador.jtNickName2.getText();
+    public String player1 = JugadorvsPc.jtNickName.getText();
+    public String player2 = "Pc";
+    
    
     
-    public Juego(){
+    public JuegoPc(){
         
         super("Triki Game");
         
@@ -44,9 +45,9 @@ public class Juego extends JFrame {
     public void tablero()
     {
         
-        Juego_Control jc = new Juego_Control(this);
+         JuegoPc_Control jpc = new JuegoPc_Control(this);
+        
        
-        turno = 1;
        
         jb1 = new JButton();
         jb2 = new JButton();
@@ -60,15 +61,14 @@ public class Juego extends JFrame {
         jbReiniciar = new JButton("Reiniciar juego");
         jlNickName1 = new JLabel(player1);
         jlNickName2 = new JLabel(player2);
-        jlturno = new JLabel("Turno jugador: " + player1);
-        
-        turno = 2;
                
         
-        jlicono1 = new JLabel(jc.asignarIcono(i1, i2));
+     jlicono1 = new JLabel(jpc.asignarIcono(i1, i2));
         if(jlicono1.getIcon().equals(i1))
             {jlicono2 = new JLabel(i2);}
             else{jlicono2 = new JLabel(i1);}
+       
+       
           
         
         jb1.setBounds(20, 20, 80, 80);
@@ -81,7 +81,6 @@ public class Juego extends JFrame {
         jb8.setBounds(100, 180, 80, 80);
         jb9.setBounds(180, 180, 80, 80);
         jbReiniciar.setBounds(250, 280, 120, 25);
-        jlturno.setBounds(20, 280, 250, 30);
         jlNickName1.setBounds(280, 20, 100, 48);
         jlNickName2.setBounds(280, 80, 100, 48);
         jlicono1.setBounds(300, 20, 115, 48);
@@ -101,7 +100,6 @@ public class Juego extends JFrame {
         add(jlNickName2);
         add(jlicono1);
         add(jlicono2);
-        add(jlturno);
         add(jbReiniciar);
         
         
@@ -115,10 +113,10 @@ public class Juego extends JFrame {
         botones.add(jb8);
         botones.add(jb9);
         
-        jbReiniciar.addActionListener(jc);
+        jbReiniciar.addActionListener(jpc);
         
         for(int i = 0;i<botones.size();i++){
-             botones.get(i).addActionListener(jc);
+             botones.get(i).addActionListener(jpc);
         }
         
     }
@@ -128,3 +126,4 @@ public class Juego extends JFrame {
     
     
 }
+

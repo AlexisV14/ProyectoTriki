@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Alexi/OneDrive/Documentos/NetBeansProjects/ProyectoTriki/src/proyectotriki/JugadorvsJugador.java</file>
-            <file>file:/C:/Users/Alexi/OneDrive/Documentos/NetBeansProjects/ProyectoTriki/src/proyectotriki/ProyectoTriki.java</file>
-            <file>file:/C:/Users/Alexi/OneDrive/Documentos/NetBeansProjects/ProyectoTriki/src/proyectotriki/Juego.java</file>
+            <file>file:/C:/Users/Alexi/OneDrive/Documentos/NetBeansProjects/ProyectoTriki/src/Controlador/JuegoPc_Control.java</file>
+            <file>file:/C:/Users/Alexi/OneDrive/Documentos/NetBeansProjects/ProyectoTriki/src/Vista/JuegoPc.java</file>
+            <file>file:/C:/Users/Alexi/OneDrive/Documentos/NetBeansProjects/ProyectoTriki/src/Controlador/Juego_Control.java</file>
+            <file>file:/C:/Users/Alexi/OneDrive/Documentos/NetBeansProjects/ProyectoTriki/src/Vista/Juego.java</file>
         </group>
     </open-files>
 </project-private>

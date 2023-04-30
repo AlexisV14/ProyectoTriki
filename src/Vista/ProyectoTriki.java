@@ -48,6 +48,7 @@ public class ProyectoTriki extends JFrame {
         jbjugadorvsjugador.addActionListener(ptc);
         jbdescripcionjuego.addActionListener(ptc);
         jbinfoProgramadores.addActionListener(ptc);
+        jbjugadorvspc.addActionListener(ptc);
         
         add(jlselecciona);
         add(jbjugadorvsjugador);
